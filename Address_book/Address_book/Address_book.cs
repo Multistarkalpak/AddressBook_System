@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace AdressBook
 {
-    internal class AddressBook
+    internal class AdressBook
     {
 
 
         public List<Contact> People = new List<Contact>();
+
 
         public void AddPerson()
         {
@@ -108,11 +109,31 @@ namespace AdressBook
 
 
             }
+
+            Console.WriteLine("contact not found");
+
+
         }
         public void Display()
-
         {
-           
+            foreach (Contact contact in People)
+            {
+                Console.WriteLine($"Firstname \t{contact.FirstName}\n Lastname \t {contact.LastName}\n PhoneNumber \t{contact.PhoneNumber}\ncity \t{contact.city}\n zip \t{contact.Zip}\n Email \t{contact.Email}\n Adress \t{contact.Address}\n ");
+            }
         }
+        public void AddMultipleContact()
+        {
+            Console.WriteLine("enter number of contact you want to add");
+            int N = Convert.ToInt32(Console.ReadLine());
+            while (N > 0)
+            {
+                AddPerson();
+                N--;
+            }
+        }
+
+
+
+
     }
 }
